@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "dotenv": "^9.0.2",
+    "ethers": "^5.1.4",
+    "puppeteer": "^9.1.1"
+  }
+}
