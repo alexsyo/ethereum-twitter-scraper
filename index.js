@@ -10,7 +10,7 @@ const tokenAddress = process.env.TOKEN_ADDRESS;
 const tokenId = process.env.TOKEN_ID;
 const quantity = process.env.QUANTITY;
 
-
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 (async () => {
   // start browser
@@ -32,7 +32,7 @@ const quantity = process.env.QUANTITY;
   while(currentHeight < scrollHeight) {
     const { data, scroll } = await page.evaluate(async () => {
       // scrape replies
-      const replies = Array.from(document.querySelectorAll('article div[data-testid=tweet] > div:nth-of-type(2)'))
+      const replies = Array.from(document.querySelectorAll('article'))
       window.scrollBy(0, 30);
 
       // click show more if exists
@@ -72,6 +72,8 @@ const quantity = process.env.QUANTITY;
 
       }
     }
+
+    await sleep(100)
   }
   
 
